@@ -1,0 +1,24 @@
+﻿@using AspectsMvcApplication.Models
+@model AspectsMvcApplication.Models.Game
+@{
+    ViewBag.Title = "BuyGame";
+    User user = ViewBag.User;
+    GamePrices prices = ViewBag.Prices;
+    var gameSrc = Path.Combine("/Images/Games/", Model.IconPath);
+}
+
+<h2>BuyGame</h2>
+
+<h3> @Model.Name </h3>
+<p>
+    <img width="100" src=@gameSrc /> 
+</p>
+<p> Price: @(Model.IsPremium ? prices.PremiumGamePrice : prices.GamePrice) EUR</p>
+@if (!Model.IsBought)
+{
+    @Html.ActionLink("Pay by money", "PayByMoney", "GamesList", new {id = Model.Id}, null)
+    if (user.Points >= (Model.IsPremium ? 7*8 : 7*5))
+    {
+        @Html.ActionLink("Pay by points", "PayByPoints", "GamesList", new {id = Model.Id}, null)
+    }
+}

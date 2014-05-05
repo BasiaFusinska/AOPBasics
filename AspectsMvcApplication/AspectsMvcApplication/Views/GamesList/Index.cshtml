@@ -1,0 +1,24 @@
+﻿@model IEnumerable<AspectsMvcApplication.Models.Game>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Games list</h2>
+
+<ul>
+@foreach (var game in Model)
+{
+    var gameSrc = Path.Combine("/Images/Games/", game.IconPath);
+    <li>
+        <img width="30" src=@gameSrc />
+        @game.Name 
+        @if (game.IsPremium)
+        {
+            <b>Premium!</b>
+        } 
+        @Html.ActionLink(game.IsBought ? "Purchased" : "Subscribe", "Buy", new { id = game.Id }, null)
+    </li>
+}
+</ul>
+
