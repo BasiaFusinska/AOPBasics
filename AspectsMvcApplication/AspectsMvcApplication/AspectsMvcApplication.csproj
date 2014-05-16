@@ -170,6 +170,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Aspects\CacheAspect.cs" />
+    <Compile Include="Aspects\TaskAspect.cs" />
     <Compile Include="Controllers\GamesListController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DataAccess\GamesDataAccess.cs" />
@@ -196,7 +197,11 @@
     <Compile Include="Services\CleanJsonToGamePricesParser.cs" />
     <Compile Include="Services\CleanSubscriptionService.cs" />
     <Compile Include="Services\CleanRedemptionService.cs" />
+    <Compile Include="Services\IPaymentsReportingService.cs" />
     <Compile Include="Services\IResourceService.cs" />
+    <Compile Include="Services\DirtyPaymentsReportingService.cs" />
+    <Compile Include="Services\CleanPaymentsReportingService.cs" />
+    <Compile Include="Services\PaymentsReportingService.cs" />
     <Compile Include="Services\RedemptionService.cs" />
     <Compile Include="Services\ILoggingService.cs" />
     <Compile Include="Services\IRedemptionService.cs" />

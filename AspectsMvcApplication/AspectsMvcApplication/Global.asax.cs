@@ -101,6 +101,9 @@ namespace AspectsMvcApplication
 
             //builder.RegisterType<DirtyResourceService>().As<IResourceService>();
             builder.RegisterType<CleanResourceService>().As<IResourceService>();
+
+            //builder.RegisterType<DirtyPaymentsReportingService>().As<IPaymentsReportingService>();
+            builder.RegisterType<CleanPaymentsReportingService>().As<IPaymentsReportingService>();
         }
     }
 }

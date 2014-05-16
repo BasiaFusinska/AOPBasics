@@ -13,18 +13,21 @@ namespace AspectsMvcApplication.Controllers
         private readonly IRedemptionService _redemptionService;
         private readonly IExternalServiceHandler _serviceHandler;
         private readonly IResourceService _resourceService;
+        private readonly IPaymentsReportingService _paymentsReportingService;
 
         public GamesListController(IGamesDataAccess gamesDataAccess,
                                    ISubscriptionService subscriptionService,
                                    IRedemptionService redemptionService,
                                    IExternalServiceHandler serviceHandler,
-                                   IResourceService resourceService)
+                                   IResourceService resourceService,
+                                   IPaymentsReportingService paymentsReportingService)
         {
             _gamesDataAccess = gamesDataAccess;
             _subscriptionService = subscriptionService;
             _redemptionService = redemptionService;
             _serviceHandler = serviceHandler;
             _resourceService = resourceService;
+            _paymentsReportingService = paymentsReportingService;
         }
 
         public ActionResult Index()
@@ -48,6 +51,8 @@ namespace AspectsMvcApplication.Controllers
 
         public ActionResult PayByMoney(int id)
         {
+            _paymentsReportingService.ReportPayment();
+
             var game = _gamesDataAccess.GetById(id);
 
             var subscription = new Subscription
