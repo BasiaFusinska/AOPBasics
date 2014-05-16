@@ -29,7 +29,6 @@ namespace AspectsMvcApplication
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            AuthConfig.RegisterAuth();
         }
 
         private void SetUpContainer()
@@ -99,6 +98,9 @@ namespace AspectsMvcApplication
                    .As<IExternalServiceHandler>()
                    .EnableInterfaceInterceptors()
                    .InterceptedBy(typeof(ServiceAspect));
+
+            //builder.RegisterType<DirtyResourceService>().As<IResourceService>();
+            builder.RegisterType<CleanResourceService>().As<IResourceService>();
         }
     }
 }

@@ -12,21 +12,28 @@ namespace AspectsMvcApplication.Controllers
         private readonly ISubscriptionService _subscriptionService;
         private readonly IRedemptionService _redemptionService;
         private readonly IExternalServiceHandler _serviceHandler;
+        private readonly IResourceService _resourceService;
 
         public GamesListController(IGamesDataAccess gamesDataAccess,
                                    ISubscriptionService subscriptionService,
                                    IRedemptionService redemptionService,
-                                   IExternalServiceHandler serviceHandler)
+                                   IExternalServiceHandler serviceHandler,
+                                   IResourceService resourceService)
         {
             _gamesDataAccess = gamesDataAccess;
             _subscriptionService = subscriptionService;
             _redemptionService = redemptionService;
             _serviceHandler = serviceHandler;
+            _resourceService = resourceService;
         }
 
         public ActionResult Index()
         {
             var games = _gamesDataAccess.GetGamesListForUser(1);
+            foreach (var game in games)
+            {
+                game.IconPath = _resourceService.GetResource(game.Name);
+            }
             return View(games);
         }
 

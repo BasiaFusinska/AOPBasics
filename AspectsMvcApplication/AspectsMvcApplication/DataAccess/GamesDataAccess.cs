@@ -15,16 +15,16 @@ namespace AspectsMvcApplication.DataAccess
     {
         private readonly IEnumerable<Game> _games = new List<Game>
                 {
-                    new Game {Id = 1, Name = "Fire Catcher", IconPath = "fire_catcher.jpg", IsPremium = true},
-                    new Game {Id = 2, Name = "Drakensang", IconPath = "drakensang.jpg"},
-                    new Game {Id = 3, Name = "Chima", IconPath = "chima.jpg"},
-                    new Game {Id = 4, Name = "Rally Challenge", IconPath = "rally_challenge.jpg"},
-                    new Game {Id = 5, Name = "Freedom Tower", IconPath = "freedom_tower.jpg", IsPremium = true},
-                    new Game {Id = 6, Name = "Bedazzled", IconPath = "bedazzled.jpg"},
-                    new Game {Id = 7, Name = "Survival Instincts", IconPath = "survival_instincts.jpg"},
-                    new Game {Id = 8, Name = "Village Car Race", IconPath = "car_race.jpg", IsPremium = true},
-                    new Game {Id = 9, Name = "FlappyBird", IconPath = "flappybird.jpg"},
-                    new Game {Id = 10, Name = "Water Mania", IconPath = "water_mania.jpg"},
+                    new Game {Id = 1, Name = "Fire Catcher", IsPremium = true},
+                    new Game {Id = 2, Name = "Drakensang"},
+                    new Game {Id = 3, Name = "Chima"},
+                    new Game {Id = 4, Name = "Rally Challenge"},
+                    new Game {Id = 5, Name = "Freedom Tower", IsPremium = true},
+                    new Game {Id = 6, Name = "Bedazzled"},
+                    new Game {Id = 7, Name = "Survival Instincts"},
+                    new Game {Id = 8, Name = "Village Car Race", IsPremium = true},
+                    new Game {Id = 9, Name = "FlappyBird"},
+                    new Game {Id = 10, Name = "Water Mania"},
                 };
 
         private readonly User _user = new User {Id = 1, Name = "Basia F."};
